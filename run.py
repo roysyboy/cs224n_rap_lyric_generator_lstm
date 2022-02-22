@@ -5,6 +5,7 @@ import numpy as np
 from model import Model
 from dataset import Dataset
 from torch.utils.data import DataLoader
+from tqdm import tqdm
 
 
 ### function: train
@@ -18,7 +19,9 @@ def train(dataset, model, args):
     for epoch in range(args.max_epochs):
         state_h, state_c = model.init_state(args.sequence_length)
 
-        for batch, (x, y) in enumerate(dataloader):
+        pbar = tqdm(enumerate(dataloader), total=len(dataloader))
+        # for batch, (x, y) in enumerate(dataloader):
+        for batch, (x, y) in pbar:
             optimizer.zero_grad()
 
             y_pred, (state_h, state_c) = model(x, (state_h, state_c))
