@@ -9,7 +9,7 @@ class Model(nn.Module):
         super(Model, self).__init__()
         self.lstm_size = 128
         self.embedding_dim = 128
-        self.num_layers = 3
+        self.num_layers = 1
 
         n_vocab = len(dataset.uniq_words)
         self.embedding = nn.Embedding(
@@ -20,7 +20,7 @@ class Model(nn.Module):
             input_size=self.lstm_size,
             hidden_size=self.lstm_size,
             num_layers=self.num_layers,
-            dropout=0.2,
+            dropout=0.3,
         )
         self.fc = nn.Linear(self.lstm_size, n_vocab)
 
