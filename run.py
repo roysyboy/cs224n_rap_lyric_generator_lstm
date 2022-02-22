@@ -74,7 +74,7 @@ def main():
 
     ## Set up model
     model = Model(dataset)
-    model = model.to(device)
+    # model = model.to(device)
 
     ## Train model
     train(dataset, model, args)
