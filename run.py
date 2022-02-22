@@ -4,6 +4,7 @@ import argparse
 import numpy as np
 from model import Model
 from dataset import Dataset
+from torch.utils.data import DataLoader
 
 
 ### function: train
