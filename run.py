@@ -65,11 +65,14 @@ def main():
     args = parser.parse_args()
     print(type(args))
 
+
     ## Set up dataset
     dataset = Dataset(args)
 
     ## Set up model
+    device = torch.cuda.current_device() if torch.cuda.is_available() else 'cpu'
     model = Model(dataset)
+    model = model.to(device)
 
     ## Train model
     train(dataset, model, args)
