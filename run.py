@@ -75,7 +75,7 @@ def main():
     train(dataset, model, args)
 
     ## Generate text
-    prediction = " ".join(predict(dataset, model, text='His feet are dry'))
+    prediction = " ".join(predict(dataset, model, text='his feet are dry'))
     print(prediction)
 
 if __name__ == "__main__":
