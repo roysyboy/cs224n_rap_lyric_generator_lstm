@@ -21,8 +21,8 @@ class Dataset(torch.utils.data.Dataset):
         # load our dataset here
         text = []
         with open('eminem_punc_cleaned.txt') as f:
-            lines = f.readlines().split(' ')
-            text += lines
+            for line in f:
+                text += line.split(" ")
         return text # we return a list of string
         # return text.split(' ')
 
