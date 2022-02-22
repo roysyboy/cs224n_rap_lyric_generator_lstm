@@ -58,6 +58,7 @@ def predict(dataset, model, text, next_words=100):
 
 def main():
     device = torch.cuda.current_device() if torch.cuda.is_available() else 'cpu'
+    print(device)
 
     ## Set up args
     parser = argparse.ArgumentParser()
