@@ -16,7 +16,7 @@ def train(dataset, model, args):
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-    for epoch in range(args.max_epochs):
+    for epoch in tqdm(range(args.max_epochs), total=args.max_epochs):
         state_h, state_c = model.init_state(args.sequence_length)
 
         pbar = tqdm(enumerate(dataloader), total=len(dataloader))
@@ -75,7 +75,7 @@ def main():
     train(dataset, model, args)
 
     ## Generate text
-    print(predict(dataset, model, text='His feet are dry'))
+    print(predict(dataset, model, text='His feet are dry').join(" "))
 
 if __name__ == "__main__":
     main()
