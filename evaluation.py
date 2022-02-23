@@ -7,6 +7,7 @@ import pronouncing
 
 ''' Rhyme density is calculated by taking the number of rhymed syllables and divide it by total number of syllables'''
 
+#bars = list of bars
 def calc_rhyme_density(bars):
   total_syllables = 0
   rhymed_syllables = 0
